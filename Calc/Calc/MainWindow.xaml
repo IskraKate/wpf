@@ -31,43 +31,49 @@
             </StackPanel>
 
 
-            <Label x:Name="textBlock" Height="80" Background="LightGray" FontSize="30" FontWeight="DemiBold"                 VerticalContentAlignment="Center" HorizontalContentAlignment="Right">
+            <Label x:Name="panel" Height="80" Background="LightGray" FontSize="30" FontWeight="DemiBold"                 VerticalContentAlignment="Center" HorizontalContentAlignment="Right">
                 0
             </Label>
             <StackPanel Orientation="Horizontal" Background="LightGray">
-                <Button Height="35" Width="55" Background= "LightGray" BorderThickness="0" FontWeight="Bold" Foreground="#FF838383" Content="MC"/>
-                <Button Height="35" Width="55" Background = "LightGray" BorderThickness="0" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FF838999" Content="MR"/>
-                <Button Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="M+"/>
-                <Button Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="M-"/>
-                <Button Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="MS"/>
+                <Button x:Name="MemoryClear" Height="35" Width="55" Background= "LightGray" BorderThickness="0" FontWeight="Bold" Foreground="#FF838383" Content="MC"/>
+                <Button x:Name="MemoryRead" Height="35" Width="55" Background = "LightGray" BorderThickness="0" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="#FF838999" Content="MR"/>
+                <Button x:Name="MemoryPlus" Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="M+"/>
+                <Button x:Name="memoryMin" Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="M-"/>
+                <Button x:Name="memorySave" Height="35" Width="55" Background = "{x:Null}" BorderThickness="0" FontWeight="Bold" Content="MS"/>
             </StackPanel>
         </StackPanel>
 
 
-        <Button Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">%</Button>
-        <Button Grid.Column="1" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">CE</Button>
-        <Button Grid.Column="2" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">C</Button>
-        <Button Grid.Column="3" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">⌫</Button>
-        <Button Grid.Column="0" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">¹/ᵪ</Button>
-        <Button Grid.Column="1" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" >X²</Button>
-        <Button Grid.Column="2" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">²√x</Button>
-        <Button Grid.Column="3" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray" Background="#FFE6E8E8">÷</Button>
-        <Button Grid.Column="0" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">7</Button>
-        <Button Grid.Column="1" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">8</Button>
-        <Button Grid.Column="2" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">9</Button>
-        <Button Grid.Column="3" Grid.Row="3" BorderThickness="1" BorderBrush="LightGray" Background="#FFE6E8E8">X</Button>
-        <Button Grid.Column="0" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">4</Button>
-        <Button Grid.Column="1" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">5</Button>
-        <Button Grid.Column="2" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">6</Button>
-        <Button Grid.Column="3" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">-</Button>
-        <Button Grid.Column="0" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">1</Button>
-        <Button Grid.Column="1" Grid.Row="5" BorderThickness="2" BorderBrush="lightGray" Background="#FFF6FAFA" FontWeight="Bold">2</Button>
-        <Button Grid.Column="2" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">3</Button>
-        <Button Grid.Column="3" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">+</Button>
-        <Button Grid.Column="0" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA">⁺/₋</Button>
-        <Button Grid.Column="1" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold">0</Button>
-        <Button Grid.Column="2" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA">,</Button>
-        <Button Grid.Column="3" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FF81ACD4">=</Button>
+        <Button x:Name="percent" Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="percent_Click">%</Button>
+        <Button x:Name="clearEntry" Grid.Column="1" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8">CE</Button>
+        <Button x:Name="clear" Grid.Column="2" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="clear_Click">C</Button>
+        <Button x:Name="back" Grid.Column="3" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="back_Click">⌫</Button>
+        <Button x:Name="mPower" Grid.Column="0" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="mPower_Click">¹/ᵪ</Button>
+        <Button x:Name="power" Grid.Column="1" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="power_Click" >X²</Button>
+        <Button x:Name="root" Grid.Column="2" Grid.Row="2" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="root_Click">²√x</Button>
+        <Button x:Name="divide" Grid.Column="3" Grid.Row="2" BorderThickness="1" BorderBrush="LightGray" Background="#FFE6E8E8" Click="divide_Click">÷</Button>
+
+        <Button Grid.Column="0" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">7</Button>
+        <Button Grid.Column="1" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">8</Button>
+        <Button Grid.Column="2" Grid.Row="3" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">9</Button>
+
+        <Button x:Name="mult" Grid.Column="3" Grid.Row="3" BorderThickness="1" BorderBrush="LightGray" Background="#FFE6E8E8" Click="mult_Click">X</Button>
+
+        <Button Grid.Column="0" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">4</Button>
+        <Button Grid.Column="1" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">5</Button>
+        <Button Grid.Column="2" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">6</Button>
+
+        <Button x:Name="min" Grid.Column="3" Grid.Row="4" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="min_Click">-</Button>
+
+        <Button Grid.Column="0" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">1</Button>
+        <Button Grid.Column="1" Grid.Row="5" BorderThickness="2" BorderBrush="lightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">2</Button>
+        <Button Grid.Column="2" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">3</Button>
+
+        <Button x:Name="plus" Grid.Column="3" Grid.Row="5" BorderThickness="2" BorderBrush="LightGray" Background="#FFE6E8E8" Click="plus_Click">+</Button>
+        <Button x:Name="multMin" Grid.Column="0" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" Click="multMin_Click">⁺/₋</Button>
+        <Button Grid.Column="1" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" FontWeight="Bold" Click="Button_Click">0</Button>
+        <Button x:Name="dot" Grid.Column="2" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FFF6FAFA" Click="dot_Click">,</Button>
+        <Button x:Name="equals" Grid.Column="3" Grid.Row="6" BorderThickness="2" BorderBrush="LightGray" Background="#FF81ACD4" Click="equals_Click">=</Button>
 
     </Grid>
 </Window>
