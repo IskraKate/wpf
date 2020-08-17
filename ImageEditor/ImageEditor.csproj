@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="coffeeImages\coffee1.jpg" />
+    <None Remove="coffeeImages\coffee10.jpg" />
+    <None Remove="coffeeImages\coffee2.jpg" />
+    <None Remove="coffeeImages\coffee3.jpg" />
+    <None Remove="coffeeImages\coffee4.jpg" />
+    <None Remove="coffeeImages\coffee5.jpg" />
+    <None Remove="coffeeImages\coffee6.jpg" />
+    <None Remove="coffeeImages\coffee7.jpg" />
+    <None Remove="coffeeImages\coffee8.jpg" />
+    <None Remove="coffeeImages\coffee9.jpg" />
+    <None Remove="layers.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="coffeeImages\coffee1.jpg" />
+    <Resource Include="coffeeImages\coffee10.jpg" />
+    <Resource Include="coffeeImages\coffee2.jpg" />
+    <Resource Include="coffeeImages\coffee3.jpg" />
+    <Resource Include="coffeeImages\coffee4.jpg" />
+    <Resource Include="coffeeImages\coffee5.jpg" />
+    <Resource Include="coffeeImages\coffee6.jpg" />
+    <Resource Include="coffeeImages\coffee7.jpg" />
+    <Resource Include="coffeeImages\coffee8.jpg" />
+    <Resource Include="coffeeImages\coffee9.jpg" />
+    <Resource Include="layers.png" />
+  </ItemGroup>
+
+</Project>
