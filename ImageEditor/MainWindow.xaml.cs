@@ -57,20 +57,22 @@ namespace ImageEditor
             Canvas.SetLeft(_img, Canvas1.ActualWidth / 2 - _img.Width / 2);
             Canvas.SetTop(_img, Canvas1.ActualHeight / 2 - _img.Height / 2);
 
-            xShift.Maximum = 100;
-            xShift.Minimum = 0;
+            xShift.Maximum = (Canvas1.ActualWidth - _img.Width) - (Canvas1.ActualWidth - _img.Width) / 2;
+            xShift.Minimum = -xShift.Maximum;
             xShift.Value = 0;
 
-            yShift.Maximum = 100;
-            yShift.Minimum = 0;
+
+            double yShiftMax = (Canvas1.ActualWidth - (_img.Height + _img.Height / 2)) - (Canvas1.ActualWidth - _img.Height) / 2;
+            yShift.Maximum = yShiftMax > 0 ? yShiftMax : -yShiftMax;
+            yShift.Minimum = -yShift.Maximum;
             yShift.Value = 0;
 
             xSkew.Maximum = 50;
-            xSkew.Minimum = 0;
+            xSkew.Minimum = -50;
             xSkew.Value = 0;
 
             ySkew.Maximum = 50;
-            ySkew.Minimum = 0;
+            ySkew.Minimum = -50;
             ySkew.Value = 0;
         }
 
