@@ -26,18 +26,12 @@ namespace ImageEditor
         private double _height;
         private double _width;
 
-        private double _x;
-        private double _y;
-
         public MainWindow()
         {
             InitializeComponent();
             _imgInfo = new ImageInfo(1);
 
             First.IsChecked = true;
-
-            xShift.ValueChanged += xShift_ValueChanged;
-            yShift.ValueChanged += yShift_ValueChanged;
 
             Initialize();
         }
@@ -46,9 +40,6 @@ namespace ImageEditor
         {
             var rb = sender as RadioButton;
             _imgInfo = new ImageInfo(int.Parse(rb.Content.ToString()));
-
-            xShift.ValueChanged += xShift_ValueChanged;
-            yShift.ValueChanged += yShift_ValueChanged;
 
             Initialize();
         }
@@ -66,38 +57,29 @@ namespace ImageEditor
             Canvas.SetLeft(_img, Canvas1.ActualWidth / 2 - _img.Width / 2);
             Canvas.SetTop(_img, Canvas1.ActualHeight / 2 - _img.Height / 2);
 
-            setSliderProp();
-        }
-
-        private void setSliderProp()
-        {
-            xShift.ValueChanged -= xShift_ValueChanged;
-            yShift.ValueChanged -= yShift_ValueChanged;
-
-            xShift.Maximum = (Canvas1.ActualWidth - _img.Width) - (Canvas1.ActualWidth - _img.Width) / 2;
-            xShift.Minimum = -xShift.Maximum;
+            xShift.Maximum = 100;
+            xShift.Minimum = 0;
             xShift.Value = 0;
 
-            yShift.Maximum = (Canvas1.ActualWidth - (_img.Height + _img.Height / 2)) - (Canvas1.ActualWidth - _img.Height) / 2;
-            yShift.Minimum = -yShift.Maximum;
+            yShift.Maximum = 100;
+            yShift.Minimum = 0;
             yShift.Value = 0;
 
-            _x = (Canvas1.ActualWidth - _img.Width) / 2;
-            _y = (Canvas1.ActualHeight - _img.Height) / 2;
+            xSkew.Maximum = 50;
+            xSkew.Minimum = 0;
+            xSkew.Value = 0;
 
-            xShift.ValueChanged += xShift_ValueChanged;
-            yShift.ValueChanged += yShift_ValueChanged;
+            ySkew.Maximum = 50;
+            ySkew.Minimum = 0;
+            ySkew.Value = 0;
         }
 
         private void Height_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
             if(_img!=null)
             {
                  var slider = sender as Slider;
                 _img.Height = slider.Value / 100 * _height;
-
-                setSliderProp();
             }
         }
 
@@ -107,52 +89,26 @@ namespace ImageEditor
             {
                  var slider = sender as Slider;
                 _img.Width = slider.Value / 100 * _width;
-
-                setSliderProp();
             }
         }
-
-        private void Rotate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (_img != null)
-            {
-                var slider = sender as Slider;
+            TransformGroup transformGroup = new TransformGroup();
 
-                _img.RenderTransformOrigin = new Point(0.5, 0.5);
-                RotateTransform rotateTransform = new RotateTransform();
-                rotateTransform.Angle = slider.Value;
-                _img.RenderTransform = rotateTransform;
+            RotateTransform rotateTransform = new RotateTransform();
+            rotateTransform.Angle = Rotate.Value;
 
-                setSliderProp();
-            }
+            TranslateTransform translateTransform = new TranslateTransform(xShift.Value, yShift.Value);
+
+            SkewTransform skewTransform = new SkewTransform(xSkew.Value, ySkew.Value);
+
+            transformGroup.Children.Add(rotateTransform);
+            transformGroup.Children.Add(translateTransform);
+            transformGroup.Children.Add(skewTransform);
+
+            _img.RenderTransformOrigin = new Point(0.5, 0.5);
+            _img.RenderTransform = transformGroup;
         }
-
-        private void xShift_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (_img != null)
-            {
-                var slider = sender as Slider;
-
-                if (slider.Value == slider.Maximum || slider.Value == slider.Minimum)
-                    return;
-
-                Canvas.SetLeft(_img, _x + slider.Value);
-            }
-        }
-
-        private void yShift_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (_img != null)
-            {
-                var slider = sender as Slider;
-
-                if (slider.Value == slider.Maximum || slider.Value == slider.Minimum)
-                    return;
-
-                Canvas.SetTop(_img, _y + slider.Value);
-            }
-        }
-
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {

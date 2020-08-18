@@ -37,13 +37,19 @@
                         <Slider x:Name="Height" Margin="5, 0, 5, 0" Padding="5" Width="175" Value="100" Minimum="0" Maximum="100" ValueChanged="Height_ValueChanged"/>
 
                         <Label Content="Rotate" Margin="5, 5, 5, 2"/>
-                        <Slider x:Name="Rotate" Margin="5, 0, 5, 0" Padding="5" Width="175" Minimum="-360" Maximum="360" ValueChanged="Rotate_ValueChanged"/>
+                        <Slider x:Name="Rotate" Margin="5, 0, 5, 0" Padding="5" Width="175" Minimum="-360" Maximum="360" ValueChanged="Slider_ValueChanged"/>
 
                         <Label Content="X-shift" Margin="5, 5, 5, 2"/>
-                        <Slider x:Name="xShift" Margin="5, 0, 5, 0" Padding="5" Width="175"/>
+                        <Slider x:Name="xShift" Margin="5, 0, 5, 0" Padding="5" Width="175" ValueChanged="Slider_ValueChanged"/>
 
                         <Label Content="Y-shift" Margin="5, 5, 5, 2"/>
-                        <Slider x:Name="yShift" Margin="5, 0, 5, 0" Padding="5" Width="175"/>
+                        <Slider x:Name="yShift" Margin="5, 0, 5, 0" Padding="5" Width="175" ValueChanged="Slider_ValueChanged"/>
+
+                        <Label Content="X-skew" Margin="5, 5, 5, 2"/>
+                        <Slider x:Name="xSkew" Margin="5, 0, 5, 0" Padding="5" Width="175" ValueChanged="Slider_ValueChanged"/>
+
+                        <Label Content="Y-skew" Margin="5, 5, 5, 2"/>
+                        <Slider x:Name="ySkew" Margin="5, 0, 5, 0" Padding="5" Width="175" ValueChanged="Slider_ValueChanged"/>
                     </WrapPanel>
                 </ScrollViewer>
             </Expander>
